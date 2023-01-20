@@ -11,13 +11,9 @@ import javax.persistence.Version;
 public abstract class AbstractEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idgenerator")
-    // The initial value is to account for data.sql demo data ids
-    @SequenceGenerator(name = "idgenerator", initialValue = 1000)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Version
-    private int version;
 
     public Long getId() {
         return id;
@@ -27,9 +23,6 @@ public abstract class AbstractEntity {
         this.id = id;
     }
 
-    public int getVersion() {
-        return version;
-    }
 
     @Override
     public int hashCode() {

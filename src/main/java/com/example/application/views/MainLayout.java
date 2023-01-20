@@ -3,8 +3,10 @@ package com.example.application.views;
 
 import com.example.application.components.appnav.AppNav;
 import com.example.application.components.appnav.AppNavItem;
-import com.example.application.views.about.AboutView;
+//import com.example.application.views.person.PersonView;
 import com.example.application.views.helloworld.HelloWorldView;
+import com.example.application.views.person.PersonView;
+import com.example.application.views.reminder.ReminderView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -34,7 +36,6 @@ public class MainLayout extends AppLayout {
 
         viewTitle = new H2();
         viewTitle.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
-
         addToNavbar(true, toggle, viewTitle);
     }
 
@@ -49,12 +50,11 @@ public class MainLayout extends AppLayout {
     }
 
     private AppNav createNavigation() {
-        // AppNav is not yet an official component.
-        // For documentation, visit https://github.com/vaadin/vcf-nav#readme
         AppNav nav = new AppNav();
 
         nav.addItem(new AppNavItem("Hello World", HelloWorldView.class, "la la-globe"));
-        nav.addItem(new AppNavItem("About", AboutView.class, "la la-filter"));
+        nav.addItem(new AppNavItem("Person", PersonView.class, "la la-th-list"));
+        nav.addItem(new AppNavItem("Reminder", ReminderView.class,"la la-th-list"));
 
         return nav;
     }
